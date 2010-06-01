@@ -1,7 +1,7 @@
 #!/bin/bash
 
 . /etc/bash_completion.d/git
-. ../colors.bash
+. ~/dotfiles/colors.bash
 
 ___wd_status () {
         local g="$(__gitdir)"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ../colors.bash
+. ~/dotfiles/colors.bash
 
 while read line; do (
   cd $line;
