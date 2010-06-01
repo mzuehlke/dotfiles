@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. ../colors.bash
+
+while read line; do (
+  cd $line;
+  wd=$(pwd);
+  echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}"; 
+  git fetch;
+) done <$HOME/.mgitrepos
