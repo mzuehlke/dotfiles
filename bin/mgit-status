@@ -3,6 +3,10 @@
 . /etc/bash_completion.d/git
 . ~/dotfiles/colors.bash
 
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+
 ___wd_status () {
         local g="$(__gitdir)"
         if [ -n "$g" ]; then
@@ -96,5 +100,5 @@ while read line; do (
   elif [[ "" != ${up_status} ]]; then
     status=" ${LIGHT_GREEN}(${up_status})";
   fi
-  echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}:${RED}${branch}${status}${NC}";
+  echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC} ${RED}${branch}${status}${NC}";
 ) done <$HOME/.mgitrepos
