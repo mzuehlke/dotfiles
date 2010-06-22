@@ -6,5 +6,5 @@ while read line; do (
   cd $line;
   wd=$(pwd);
   echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}"; 
-  git fetch;
+  git fetch -v;
 ) done <$HOME/.mgitrepos
