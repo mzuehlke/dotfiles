@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. ~/dotfiles/colors.bash
+source `dirname $0`/../colors.bash
+
 
 while read line; do (
   cd $line;
