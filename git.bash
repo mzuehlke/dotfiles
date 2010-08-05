@@ -166,7 +166,7 @@ __git_ps1_show_upstream_mz ()
 		"0	0") # equal to upstream
 			p="" ;;
 		"0	"*) # ahead of upstream
-			p=" ${LIGHT_RED}↑${count#	0}${NC}" ;;
+			p=" ${LIGHT_RED}↑${count#0	}${NC}" ;;
 		*"	0") # behind upstream
 			p=" ${LIGHT_GREEN}↓${count%	0}${NC}" ;;
 		*)	    # diverged from upstream
