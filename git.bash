@@ -265,8 +265,8 @@ __git_ps1_mz ()
 			fi
 		fi
 
-		local f="${LIGHT_PURPLE}$w$i$s$u${NC}"
-		echo -ne " (${YELLOW}$c${b##refs/heads/}${NC}${f:+ $f}${YELLOW}$r${NC}$p)"
+		local f="$w$i$s$u"
+		echo -en " (${YELLOW}$c${b##refs/heads/}${LIGHT_PURPLE}${f:+ $f}${YELLOW}$r${NC}$p)"
 	fi
 }
 
