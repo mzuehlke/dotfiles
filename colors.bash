@@ -7,4 +7,6 @@ LIGHT_CYAN='\e[1;36m'
 GREEN='\e[0;32m'
 LIGHT_GREEN='\e[1;32m'
 YELLOW='\e[0;33m'
+LIGHT_YELLOW='\e[1;33m'
+LIGHT_PURPLE='\e[1;35m'
 NC='\e[0m' # No Color 

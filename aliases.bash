@@ -1,4 +1,10 @@
+# ls 
+alias ll='ls -l'
+alias la='ls -lA'
+alias l='ls -CF'
 
+# eclipse
+alias mee='mvn eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true'
 
 #alias open="kde-open 2> /dev/null > /dev/null"
 function open {
@@ -8,6 +14,7 @@ function open {
     kde-open 2> /dev/null > /dev/null $1
   fi
 }
+
 # git
 alias gs='git status'
 alias gpr='git pull --rebase'
