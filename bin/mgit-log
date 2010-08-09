@@ -19,4 +19,4 @@ while read line; do (
   wd=$(pwd);
   echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}"; 
   git --no-pager log --decorate --oneline ..@{upstream};
-) done <$HOME/.mgitrepos | less -FSRX
+) done <$HOME/.mgitrepos | git_pager
