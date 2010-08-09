@@ -266,7 +266,7 @@ __git_ps1_mz ()
 		fi
 
 		local f="$w$i$s$u"
-		echo -en " (${YELLOW}$c${b##refs/heads/}${LIGHT_PURPLE}${f:+ $f}${YELLOW}$r${NC}$p)"
+		echo -en "(${YELLOW}$c${b##refs/heads/}${LIGHT_PURPLE}${f:+ $f}${YELLOW}$r${NC}$p)"
 	fi
 }
 
@@ -276,4 +276,4 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="git verbose"
 
-PS1="${LIGHT_GREEN}\u@\h${NC}:${LIGHT_BLUE}\w${NC}\$(__git_ps1_mz)\$ "
+PS1="${LIGHT_GREEN}\u@\h${NC}:${LIGHT_BLUE}\w${NC} \$(__git_ps1_mz)\$ "
