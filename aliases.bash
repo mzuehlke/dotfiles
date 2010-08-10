@@ -22,6 +22,6 @@ alias gld='git log --decorate --oneline'
 alias glda='git log --decorate --oneline --all'
 alias gl="git log --graph --pretty=format:'%C(bold red)%d%Creset %s %C(bold blue)<%an> %Cgreen(%cr)%Creset' --date=relative"
 alias gla="git log --graph --pretty=format:'%C(bold red)%d%Creset %s %C(bold blue)<%an> %Cgreen(%cr)%Creset' --date=relative --all"
-alias mgs='mgit-status'
-alias mgf='mgit-fetch'
+alias mgs='mgit-status all'
+alias mgf='mgit-fetch all'
 alias gk='gitk --all'

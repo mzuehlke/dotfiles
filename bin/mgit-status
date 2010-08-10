@@ -3,8 +3,14 @@
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
 
-while read line; do (
+all=$(parse_all_parameter "$@");
+head_wd=$(pwd);
+
+while read line; do (  
   cd $line;
-  wd=$(pwd); 
-  echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC} $(__git_ps1_mz)";
+  wd=$(pwd);
+  prefix=${wd#$head_wd};
+  if [[ $wd != $prefix || -n $all ]]; then
+    echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC} $(__git_ps1_mz)";
+  fi
 ) done <$HOME/.mgitrepos

@@ -282,6 +282,18 @@ git_pager() {
         eval "$GIT_PAGER" '"$@"'
 }
 
+parse_all_parameter() {
+echo $1;
+case "$1" in
+all)
+        return 1
+        ;;
+*)
+        return 0
+        ;;
+esac
+}
+
 # git stuff
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
