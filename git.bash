@@ -270,6 +270,18 @@ __git_ps1_mz ()
 	fi
 }
 
+git_pager() {
+        if test -t 1
+        then
+                GIT_PAGER=$(git var GIT_PAGER)
+        else
+                GIT_PAGER=cat
+        fi
+        : ${LESS=-FRSX}
+        export LESS
+        eval "$GIT_PAGER" '"$@"'
+}
+
 # git stuff
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true

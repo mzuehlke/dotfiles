@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source `dirname $0`/../colors.bash
+source `dirname $0`/../git.bash
+
+
+while read line; do (
+  cd $line;
+  wd=$(pwd);
+  echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}"; 
+  git --no-pager diff --stat ..@{upstream};
+) done <$HOME/.mgitrepos |git_pager
