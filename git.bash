@@ -153,11 +153,11 @@ __git_ps1_show_upstream_mz ()
 		"0	0") # equal to upstream
 			p="=" ;;
 		"0	"*) # ahead of upstream
-			p="↑" ;;
+			p=">" ;;
 		*"	0") # behind upstream
-			p="↓" ;;
+			p="<" ;;
 		*)	    # diverged from upstream
-			p="↑↓" ;;
+			p="<>" ;;
 		esac
 	else
 		case "$count" in
@@ -266,7 +266,11 @@ __git_ps1_mz ()
 		fi
 
 		local f="$w$i$s$u"
-		echo -en "(${YELLOW}$c${b##refs/heads/}${LIGHT_PURPLE}${f:+ $f}${YELLOW}$r${NC}$p)"
+                if [ -n "${GIT_PS1_SHOWCOLORS-}" ]; then
+		    echo -en "(${YELLOW}$c${b##refs/heads/}${LIGHT_PURPLE}${f:+ $f}${YELLOW}$r${NC}$p)"
+                else
+                    echo -en "($c${b##refs/heads/}${f:+ $f}$r$p)"
+                fi
 	fi
 }
 
@@ -296,6 +300,7 @@ esac
 
 # git stuff
 GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORS=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="git verbose"
