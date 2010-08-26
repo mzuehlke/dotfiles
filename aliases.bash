@@ -15,6 +15,15 @@ function open {
   fi
 }
 
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+#
+# https://bugs.launchpad.net/ubuntu/+source/bash/+bug/616028
+# http://blog.dustinkirkland.com/2010/07/dear-command-line-please-ping-me-when.html
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+
 # git
 alias gs='git status'
 alias gpr='git pull --rebase'
