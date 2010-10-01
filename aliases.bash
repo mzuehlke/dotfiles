@@ -34,3 +34,15 @@ alias gla="git log --graph --pretty=format:'%C(bold red)%d%Creset %s %C(bold blu
 alias mgs='mgit-status all'
 alias mgf='mgit-fetch all'
 alias gk='gitk --all'
+
+#calvalus
+alias cvm='ssh hadoop@cvmaster00'
+alias cv00='ssh hadoop@cvslave00'
+alias cv01='ssh hadoop@cvslave01'
+alias cv02='ssh hadoop@cvslave02'
+alias cv03='ssh hadoop@cvslave03'
+alias cv04='ssh hadoop@cvslave04'
+alias cv05='ssh hadoop@cvslave05'
+alias cv06='ssh hadoop@cvslave06'
+alias cv07='ssh hadoop@cvslave07'
+alias cv08='ssh hadoop@cvslave08'
