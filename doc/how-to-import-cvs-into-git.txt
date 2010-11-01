@@ -1,0 +1,10 @@
+see:
+http://pkp.sfu.ca/wiki/index.php/HOW-TO_import_and_export_to_and_from_Git_and_CVS
+# examples
+============
+git cvsimport -v -d :pserver:anonymous@gee.cs.oswego.edu/home/jsr166/jsr166 -k -p -x jsr166
+git cvsimport -v -d :pserver:anonymous@www.array.ca:2401/repos -k -p -x nest
+
+# update:
+==========
+git cvsimport -k
