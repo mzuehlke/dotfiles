@@ -2,6 +2,7 @@
 
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
+source `dirname $0`/../prompt.bash
 
 all=$(parse_all_parameter "$@");
 head_wd=$(pwd);
@@ -11,6 +12,6 @@ while read line; do (
   wd=$(pwd);
   prefix=${wd#$head_wd};
   if [[ $wd != $prefix || -n $all ]]; then
-    echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC} $(__git_ps1_mz)";
+    prompt_command_mz $wd
   fi
 ) done <$HOME/.mgitrepos

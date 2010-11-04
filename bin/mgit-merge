@@ -11,19 +11,15 @@ while read line; do (
   wd=$(pwd);
   prefix=${wd#$head_wd};
   if [[ $wd != $prefix || -n $all ]]; then
-    echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC} $(__git_ps1_mz)";
+    prompt_command_mz $wd
     
-    GIT_PS1_SHOWUPSTREAM="git";
-    unset GIT_PS1_SHOWCOLORS;
-    status=$(__git_ps1_mz);
+    status=$(__git_ps1);
     branch="$(git symbolic-ref HEAD 2>/dev/null)";
     if [[ $status == "(${branch##refs/heads/}<)" ]]; then
       echo "merging....";
       git merge --verbose @{upstream};
 
-      GIT_PS1_SHOWUPSTREAM="git verbose";
-      GIT_PS1_SHOWCOLORS="true";
-      echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC} $(__git_ps1_mz)";
+      prompt_command_mz $wd
     fi
   fi
 ) done <$HOME/.mgitrepos
