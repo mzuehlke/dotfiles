@@ -2,6 +2,7 @@
 
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
+source `dirname $0`/../prompt.bash
 
 all=$(parse_all_parameter "$@");
 head_wd=$(pwd);
@@ -12,14 +13,18 @@ while read line; do (
   prefix=${wd#$head_wd};
   if [[ $wd != $prefix || -n $all ]]; then
     prompt_command_mz $wd
-    
-    status=$(__git_ps1);
+
+    git_ps1=$(__git_ps1 "%s")
+    GIT_PS1_SHOWUPSTREAM="git"
+    p=""
+    __git_ps1_show_upstream
+    unset GIT_PS1_SHOWUPSTREAM
+    status="${git_ps1}${p}";
     branch="$(git symbolic-ref HEAD 2>/dev/null)";
-    if [[ $status == "(${branch##refs/heads/}<)" ]]; then
+
+    if [[ $status == "${branch##refs/heads/}<" ]]; then
       echo "merging....";
       git merge --verbose @{upstream};
-
-      prompt_command_mz $wd
     fi
   fi
 ) done <$HOME/.mgitrepos

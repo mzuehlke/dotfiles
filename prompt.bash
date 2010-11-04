@@ -2,7 +2,7 @@ source /etc/bash_completion.d/git
 
 function prompt_command_mz {
 
-  
+  set -f
   # git stuff
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWSTASHSTATE=true
@@ -13,13 +13,15 @@ function prompt_command_mz {
   if [[ -z ${git_ps1} ]];then
     PS1="\[${LIGHT_GREEN}\]\u \[${LIGHT_BLUE}\]\w\[${NC}\] \$ "
   else
-
     local arr2=($git_ps1)
     local g_branch=${arr2[0]}
     local g_flags=${arr2[1]}
 
+    if [[ -n ${g_flags} ]]; then 
+      g_flags=" ${g_flags}"
+    fi
     if [[ -n ${1} ]]; then 
-     echo -en "${LIGHT_BLUE}${1/$HOME/~}${NC} (${YELLOW}${g_branch}${LIGHT_PURPLE}${g_flags:+ $g_flags}"
+      echo -en "${LIGHT_BLUE}${1/$HOME/~}${NC} (${YELLOW}${g_branch}${LIGHT_PURPLE}${g_flags}"
     fi
     GIT_PS1_SHOWUPSTREAM="git verbose"
     local p=""
@@ -46,7 +48,7 @@ function prompt_command_mz {
     if [[ -n ${1} ]]; then
       echo -e "${NC})"; 
     else
-      PS1="\[${LIGHT_GREEN}\]\u \[${LIGHT_BLUE}\]\w\[${NC}\] (\[${YELLOW}\]${g_branch}\[${LIGHT_PURPLE}\]${g_flags:+ $g_flags}\[${NC}\]${g_upstream})\$ "
+      PS1="\[${LIGHT_GREEN}\]\u \[${LIGHT_BLUE}\]\w\[${NC}\] (\[${YELLOW}\]${g_branch}\[${LIGHT_PURPLE}\]${g_flags}\[${NC}\]${g_upstream})\$ "
     fi  
   fi
 
@@ -60,6 +62,7 @@ function prompt_command_mz {
         ;;
     esac
  fi
+ set +f
 }
 
 PROMPT_COMMAND=prompt_command_mz
