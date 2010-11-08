@@ -3,9 +3,17 @@
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
 
-
 function __do_new_diffstsat() {
-    echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}"
-    git --no-pager diff --color=always --stat ..@{upstream}
+    GIT_PS1_SHOWUPSTREAM="git"
+    local p=""
+    __git_ps1_show_upstream
+    unset GIT_PS1_SHOWUPSTREAM
+
+    if [[ $p =~ \< ]]; then
+      prompt_command_mz $wd
+      git --no-pager diff --color=always --stat ..@{upstream}
+      echo
+    fi    
 }
+
 foreach_gitdir __do_new_diffstsat $@ | git_pager
