@@ -3,17 +3,9 @@
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
 
-all=$(parse_all_parameter "$@");
-head_wd=$(pwd);
+function __do_new_log() {
+    echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}"
+    git --no-pager log --pretty=tformat:'%C(bold red)%d%Creset %s %C(bold magenta)<%an> %Cgreen(%cr)%Creset' --date=relative ..@{upstream}
+}
 
-while read line; do (  
-  cd $line;
-  wd=$(pwd);
-  prefix=${wd#$head_wd};
-  if [[ $wd != $prefix || -n $all ]]; then
-
-    echo -e "${LIGHT_BLUE}${wd/$HOME/~}${NC}";
-    git --no-pager log --pretty=tformat:'%C(bold red)%d%Creset %s %C(bold magenta)<%an> %Cgreen(%cr)%Creset' --date=relative ..@{upstream};    
-
-  fi
-) done <$HOME/.mgitrepos | git_pager
+foreach_gitdir __do_new_log $@ | git_pager

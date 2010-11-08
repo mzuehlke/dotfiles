@@ -2,16 +2,8 @@
 
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
-source `dirname $0`/../prompt.bash
 
-all=$(parse_all_parameter "$@");
-head_wd=$(pwd);
-
-while read line; do (  
-  cd $line;
-  wd=$(pwd);
-  prefix=${wd#$head_wd};
-  if [[ $wd != $prefix || -n $all ]]; then
+function __do_merge() {
     prompt_command_mz $wd
 
     git_ps1=$(__git_ps1 "%s")
@@ -26,5 +18,6 @@ while read line; do (
       echo "merging....";
       git merge --verbose @{upstream};
     fi
-  fi
-) done <$HOME/.mgitrepos
+}
+
+foreach_gitdir __do_merge $@
