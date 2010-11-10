@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source `dirname $0`/../colors.bash
+source `dirname $0`/../git.bash
+
+function __do_new_diff() {
+    GIT_PS1_SHOWUPSTREAM="git"
+    local p=""
+    __git_ps1_show_upstream
+    unset GIT_PS1_SHOWUPSTREAM
+
+    if [[ $p =~ \< ]]; then
+      prompt_command_mz $wd
+      git --no-pager diff --color=always ..@{upstream}
+    fi    
+}
+
+foreach_gitdir __do_new_diff $@ | git_pager
