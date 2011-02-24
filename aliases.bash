@@ -33,6 +33,7 @@ alias glda='git log --decorate --oneline --all'
 alias gl="git log --graph --pretty=format:'%C(bold red)%d%Creset %s %C(bold blue)<%an> %Cgreen(%cr)%Creset' --date=relative"
 alias gla="git log --graph --pretty=format:'%C(bold red)%d%Creset %s %C(bold blue)<%an> %Cgreen(%cr)%Creset' --date=relative --all"
 alias mgs='mgit-status all'
+alias mgsv='mgit-status-verbose'
 alias mgf='mgit-fetch all'
 alias gk='gitk --all'
 alias git-update-cvsrepo='git cvsimport -v -k'
