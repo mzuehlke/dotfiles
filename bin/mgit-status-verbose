@@ -16,7 +16,7 @@ function __do_git_status_verbose() {
 
    if [[ $status != "${branch##refs/heads/}=" ]]; then
       prompt_command_mz $wd
-      git status --verbose
+      git status -s
     fi
 }
 
