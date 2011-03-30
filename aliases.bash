@@ -36,6 +36,7 @@ alias mgs='mgit-status all'
 alias mgsv='mgit-status-verbose'
 alias mgf='mgit-fetch all'
 alias gk='gitk --all'
+alias gkn='gitk ..@{upstream}'
 alias git-update-cvsrepo='git cvsimport -v -k'
 
 #calvalus
