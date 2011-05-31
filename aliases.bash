@@ -61,3 +61,4 @@ alias cv16='ssh hadoop@cvslave16'
 alias cv17='ssh hadoop@cvslave17'
 alias cv18='ssh hadoop@cvslave18'
 
+export LESS="--LONG-PROMPT"
