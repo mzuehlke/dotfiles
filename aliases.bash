@@ -28,6 +28,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias gs='git status'
 alias gpr='git pull --rebase'
 alias gmu='git merge @{upstream}'
+alias gru='git rebase @{upstream}'
 alias gld='git log --decorate --oneline'
 alias glda='git log --decorate --oneline --all'
 alias gl="git log --graph --pretty=format:'%C(bold red)%d%Creset %s %C(bold blue)<%an> %Cgreen(%cr)%Creset' --date=relative"
