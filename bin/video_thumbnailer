@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $# != "1" ]]; then
+  echo "usage: `basename $0` video-file"
+  exit
+fi
+movie=`readlink -f $1`
+echo $movie
+dir=`basename ${1}`_thumbs
+echo $dir
+
+mkdir -p $dir
+(cd $dir; ffmpeg -i $movie -r 0.05 thumb_%04d.jpg)
