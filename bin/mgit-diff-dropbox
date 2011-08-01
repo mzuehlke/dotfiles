@@ -3,7 +3,10 @@
 source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
 
-function __do_git_status_verbose() {
+now=`date '+%Y-%m-%d_%H-%M-%S'`
+diffDir="$HOME/Dropbox/Stashes/${now}"
+
+function __do_git_diff_dropbox() {
     prompt_command_mz
 
     git_ps1=$(__git_ps1 "%s")
@@ -13,9 +16,7 @@ function __do_git_status_verbose() {
     unset GIT_PS1_SHOWUPSTREAM
     status="${git_ps1}${p}"
     branch="$(git symbolic-ref HEAD 2>/dev/null)"
-
-    now=`date '+%Y-%m-%d'`
-    diffDir="$HOME/Dropbox/Stashes/${now}"
+    
     diffFile="${diffDir}/`basename ${wd}`.diff"
     
     if [[ $status != "${branch##refs/heads/}=" ]]; then
@@ -25,4 +26,4 @@ function __do_git_status_verbose() {
     fi
 }
 
-foreach_gitdir __do_git_status_verbose all
+foreach_gitdir __do_git_diff_dropbox all

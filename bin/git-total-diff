@@ -4,5 +4,5 @@
 # http://stackoverflow.com/questions/855767/can-i-use-git-diff-on-untracked-files
 #
 
-git --no-pager diff --color
-git ls-files --others --exclude-standard | while read -r i; do git --no-pager diff --color -- /dev/null "$i"; done
+git --no-pager diff HEAD
+git ls-files --others --exclude-standard | while read -r i; do git --no-pager diff -- /dev/null "$i"; done
