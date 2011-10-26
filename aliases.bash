@@ -64,4 +64,6 @@ alias cv18='ssh hadoop@cvslave18'
 
 alias cvfeeder='ssh hadoop@cvfeeder00'
 
+alias bcvm03='ssh cvop@bcvm03'
+
 export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS"
