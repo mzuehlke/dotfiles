@@ -11,7 +11,7 @@ function __do_fetch() {
     __git_ps1_show_upstream
     p_before=$p
 
-    git fetch
+    git fetch --all
 
     p=""
     __git_ps1_show_upstream
