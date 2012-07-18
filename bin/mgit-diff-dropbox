@@ -4,7 +4,8 @@ source `dirname $0`/../colors.bash
 source `dirname $0`/../git.bash
 
 now=`date '+%Y-%m-%d_%H-%M-%S'`
-diffDir="$HOME/Dropbox/Stashes/${now}"
+where=`hostname`
+diffDir="$HOME/Dropbox/Stashes/${now}@${where}"
 
 function __do_git_diff_dropbox() {
     prompt_command_mz
