@@ -87,12 +87,18 @@ function foreach_gitdir() {
     do_all="true"
   fi
   local head_wd=$(pwd)
+  local used="false"
   for line in $(cat $HOME/.mgitrepos) ; do
     cd ${line}
     local wd=$(pwd)
     local prefix=${wd#$head_wd}
     if [[ ${do_all} == "true" || $wd != $prefix ]]; then
       ${func}
+      used="true"
     fi
   done
+  if [[ ${used} == "false" ]]; then
+      cd ${head_wd}
+      ${func}
+  fi
 }
