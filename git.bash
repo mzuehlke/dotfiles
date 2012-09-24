@@ -1,5 +1,5 @@
 
-source /etc/bash_completion.d/git
+source /usr/share/doc/git/contrib/completion/git-prompt.sh
 
 function prompt_command_mz {
 
