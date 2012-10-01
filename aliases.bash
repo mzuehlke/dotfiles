@@ -38,32 +38,11 @@ alias mgsv='mgit-status-verbose'
 alias mgf='mgit-fetch all'
 alias gk='gitk --all'
 alias gkn='gitk ..@{upstream}'
+
 alias git-update-cvsrepo='git cvsimport -v -k'
 
 #calvalus
-alias cvm='ssh hadoop@cvmaster00'
-alias cv00='ssh hadoop@cvslave00'
-alias cv01='ssh hadoop@cvslave01'
-alias cv02='ssh hadoop@cvslave02'
-alias cv03='ssh hadoop@cvslave03'
-alias cv04='ssh hadoop@cvslave04'
-alias cv05='ssh hadoop@cvslave05'
-alias cv06='ssh hadoop@cvslave06'
-alias cv07='ssh hadoop@cvslave07'
-alias cv08='ssh hadoop@cvslave08'
-alias cv09='ssh hadoop@cvslave09'
-alias cv10='ssh hadoop@cvslave10'
-alias cv11='ssh hadoop@cvslave11'
-alias cv12='ssh hadoop@cvslave12'
-alias cv13='ssh hadoop@cvslave13'
-alias cv14='ssh hadoop@cvslave14'
-alias cv15='ssh hadoop@cvslave15'
-alias cv16='ssh hadoop@cvslave16'
-alias cv17='ssh hadoop@cvslave17'
-alias cv18='ssh hadoop@cvslave18'
-
 alias cvfeeder='ssh hadoop@cvfeeder00'
-
 alias bcvm03='ssh cvop@bcvm03'
 
 export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS"

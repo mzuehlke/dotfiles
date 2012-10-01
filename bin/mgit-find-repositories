@@ -1,3 +1,59 @@
 #!/bin/bash
-# >~/.mgitrepos
-find . -name .git -type d -prune -print|xargs -n1 readlink -f|xargs -n1 dirname 
+
+usage() {
+    echo "`basename $0` [-a|--all|-v|-verbose]"
+    echo
+    echo "Finds recursive all git repositories:"
+    echo "-a, --all      Lists all repo, otherwise onyl repos that are not registered are listed."
+    echo "-v, --verbose  Prints detailed information about the repo."
+    echo
+}
+
+all="false"
+verbose="false"
+while test $# != 0
+do
+    case "$1" in
+    -a|--all)
+        all="true"
+        ;;
+    -v|--verbose)
+        verbose="true"
+        ;;
+    *)
+        usage
+        exit 1
+        ;;
+    esac
+    shift
+done
+
+function printRepo() {
+    if [[ $verbose == "true" ]]; then
+        (cd $1
+         branch=$(git rev-parse --abbrev-ref HEAD)
+         for remote in $(git remote -v|grep fetch|cut -f2|cut -d' ' -f1)
+         do
+           url="$remote $url"
+         done
+         bar=${url:1}
+         echo "$1 ($branch) [$url]"
+         )
+    else
+        echo $1
+    fi
+}
+
+for repo in $(find . -name .git -type d -prune -print)
+do
+    repoDir=$(dirname $(readlink -f $repo))
+    if [[ $all == "true" ]]
+    then
+        printRepo $repoDir
+    else
+        if ! mgit-list|grep -xq $repoDir
+        then
+            printRepo $repoDir
+        fi
+    fi
+done

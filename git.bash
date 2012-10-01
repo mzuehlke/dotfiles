@@ -88,7 +88,7 @@ function foreach_gitdir() {
   fi
   local head_wd=$(pwd)
   local used="false"
-  for line in $(cat $HOME/.mgitrepos) ; do
+  for line in $(mgit-list) ; do
     cd ${line}
     local wd=$(pwd)
     local prefix=${wd#$head_wd}
