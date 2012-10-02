@@ -22,4 +22,4 @@ function __do_fetch() {
     fi
 }
 
-foreach_gitdir __do_fetch $@
+foreach_gitdir __do_fetch repo

@@ -20,4 +20,4 @@ function __do_git_status_verbose() {
     fi
 }
 
-foreach_gitdir __do_git_status_verbose all
+foreach_gitdir __do_git_status_verbose $@

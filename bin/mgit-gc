@@ -8,4 +8,4 @@ function __do_gc() {
     git gc
 }
 
-foreach_gitdir __do_gc $@
+foreach_gitdir __do_gc repo

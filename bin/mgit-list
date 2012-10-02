@@ -15,5 +15,5 @@ else
 fi
 
 if [[ -n $files ]]; then
-  cat $files|sort
+  cat $files
 fi

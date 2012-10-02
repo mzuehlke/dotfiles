@@ -27,4 +27,7 @@ function __do_git_diff_dropbox() {
     fi
 }
 
-foreach_gitdir __do_git_diff_dropbox all
+(
+  cd ~/Projects/BC
+  foreach_gitdir __do_git_diff_dropbox
+)
