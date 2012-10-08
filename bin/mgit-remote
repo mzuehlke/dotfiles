@@ -8,4 +8,4 @@ function __do_remote() {
     git remote -v | grep push | sed 's/(.*$//'
 }
 
-foreach_gitdir __do_remote repo
+foreach_gitdir __do_remote repo $@

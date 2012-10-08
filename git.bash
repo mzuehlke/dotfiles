@@ -83,12 +83,13 @@ git_pager() {
 function foreach_gitdir() {  
   local func=$1
   local do_all="false"
-  if [[ "$2" == "all" ]]; then
+  if [[ "${@: -1}" == "all" ]]; then
+    echo doall
     do_all="true"
   fi
   local head_wd=$(pwd)
   local used="false"
-  for line in $(mgit-list) ; do
+  for line in $(mgit-list $@) ; do
     cd ${line}
     local wd=$(pwd)
     local prefix=${wd#$head_wd}
