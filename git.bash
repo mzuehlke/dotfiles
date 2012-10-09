@@ -84,7 +84,6 @@ function foreach_gitdir() {
   local func=$1
   local do_all="false"
   if [[ "${@: -1}" == "all" ]]; then
-    echo doall
     do_all="true"
   fi
   local head_wd=$(pwd)
