@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [[ $# == 1 && $1 == r* && -f $HOME/.mgit.repos ]]; then
+if [[ "$#" -ge "1" && $1 == r* && -f $HOME/.mgit.repos ]]; then
   files="$HOME/.mgit.repos"
-elif [[ $# == 1 && $1 == b* && -f $HOME/.mgit.branches ]]; then
+elif [[ "$#" -ge "1" && $1 == b* && -f $HOME/.mgit.branches ]]; then
   files="$HOME/.mgit.branches"
 else
   if [[ -f $HOME/.mgit.branches && -f $HOME/.mgit.repos ]]; then
