@@ -82,6 +82,7 @@ git_pager() {
 
 function foreach_gitdir() {  
   local func=$1
+  shift
   local do_all="false"
   if [[ "${@: -1}" == "all" ]]; then
     do_all="true"
