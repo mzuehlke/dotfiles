@@ -7,11 +7,11 @@ nodename=`uname -n`
 
 # my JAVA stuff
 
-if [[ $nodename == "marcoz-desktop" ]]; then
+if [ $nodename = "marcoz-desktop" ]; then
   export JAVA_HOME="/opt/Java/jdk1.6.0_37"
   export MAVEN_HOME="/opt/Maven/apache-maven-3.0.4"
   arch="amd64"
-elif [[ $nodename == "castle" ]]; then
+elif [ $nodename = "castle" ]; then
   export JAVA_HOME="/opt/Java/jdk1.6.0_37"
   export MAVEN_HOME="/opt/Maven/apache-maven-2.2.1"
   arch="i386"
