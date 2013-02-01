@@ -30,4 +30,7 @@ function __do_git_diff_dropbox() {
 (
   cd ~/Projects/BC
   foreach_gitdir __do_git_diff_dropbox
+  cd ~/Projects/dotfiles
+  foreach_gitdir __do_git_diff_dropbox
+
 )
