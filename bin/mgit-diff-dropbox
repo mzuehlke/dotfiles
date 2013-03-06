@@ -17,13 +17,22 @@ function __do_git_diff_dropbox() {
     unset GIT_PS1_SHOWUPSTREAM
     status="${git_ps1}${p}"
     branch="$(git symbolic-ref HEAD 2>/dev/null)"
-    
-    diffFile="${diffDir}/`basename ${wd}`.diff"
-    
-    if [[ $status != "${branch##refs/heads/}=" ]]; then
+    pretty_branch=${branch##refs/heads/}
+
+    if [[ "$status" != "${pretty_branch}=" ]]; then
+      diffFile="${diffDir}/`basename ${wd}`@${pretty_branch}.diff"
       echo "Stashing to ${diffFile}"
       mkdir -p $diffDir
-      git-total-diff > $diffFile
+      git-total-diff > "$diffFile"
+     if [[ "${status##${pretty_branch}}" == *\$* ]]; then
+       for stashLabel in "$(git --no-pager stash list)"; do
+         stashNameAsArray=(${stashLabel//:/ })
+         stash_name=${stashNameAsArray[0]}
+         diffFile="${diffDir}/`basename ${wd}`@${pretty_branch}-${stash_name}.diff"
+         echo "Stashing to ${diffFile}"
+         git --no-pager stash show -p ${stash_name} > "$diffFile"
+       done
+     fi
     fi
 }
 
