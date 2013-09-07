@@ -1,5 +1,11 @@
 
-source /usr/share/doc/git/contrib/completion/git-prompt.sh
+if [[ -f /usr/share/doc/git/contrib/completion/git-prompt.sh ]]; then
+  # old
+  source /usr/share/doc/git/contrib/completion/git-prompt.sh
+elif [[ -f /usr/lib/git-core/git-sh-prompt ]]; then
+  # new
+  source /usr/lib/git-core/git-sh-prompt
+fi
 
 function prompt_command_mz {
 
