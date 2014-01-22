@@ -8,7 +8,7 @@ nodename=`uname -n`
 # my JAVA stuff
 
 if [ $nodename = "marcoz-desktop" ]; then
-  export JAVA_HOME="/opt/Java/jdk1.7.0_45"
+  export JAVA_HOME="/opt/Java/jdk1.7.0_51"
   export MAVEN_HOME="/opt/Maven/apache-maven-3.1.1"
   arch="amd64"
 elif [ $nodename = "castle" ]; then
