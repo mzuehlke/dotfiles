@@ -18,8 +18,11 @@ if [ $nodename = "marcoz-desktop" ]; then
 
 elif [ $nodename = "castle" ]; then
 
-  export JAVA_HOME="/opt/Java/jdk1.7.0_45"
-  export MAVEN_HOME="/opt/Maven/apache-maven-3.1.1"
+  export JDK6_HOME="/opt/Java/jdk1.6.0_45"
+  export JDK7_HOME="/opt/Java/jdk1.7.0_51"
+
+  export JDK_HOME=$JDK7_HOME
+  export MAVEN_HOME="/opt/Maven/apache-maven-3.2.1"
   arch="i386"
 
 fi
