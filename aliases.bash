@@ -37,6 +37,7 @@ alias mgs='mgit-status all'
 alias mgsv='mgit-status-verbose'
 alias mgf='mgit-fetch all'
 alias gk='gitk --all'
+alias gkd='gitk --all --date-order'
 alias gkn='gitk ..@{upstream}'
 
 alias git-update-cvsrepo='git cvsimport -v -k'
