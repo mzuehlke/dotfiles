@@ -15,5 +15,5 @@ else
 fi
 
 if [[ -n $files ]]; then
-  grep -v "^#" $files
+  grep -vh "^#" $files
 fi
