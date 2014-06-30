@@ -37,7 +37,7 @@ function printRepo() {
            url="$remote $url"
          done
          bar=${url:1}
-         echo "$1 ($branch) [$url]"
+         echo "$(basename $1) $1 ($branch) [$url]"
          )
     else
         echo $1
