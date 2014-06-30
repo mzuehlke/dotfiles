@@ -12,8 +12,8 @@ if [ $nodename = "marcoz-desktop" ]; then
   export JDK7_HOME="/opt/Java/jdk1.7.0_55"
   export JDK8_HOME="/opt/Java/jdk1.8.0_05"
 
-  export JDK_HOME=$JDK7_HOME
-  export MAVEN_HOME="/opt/Maven/apache-maven-3.2.1"
+  export JDK_HOME=$JDK8_HOME
+  export MAVEN_HOME="/opt/Maven/apache-maven-3.2.2"
   arch="amd64"
 
 elif [ $nodename = "castle" ]; then
@@ -40,7 +40,7 @@ export PATH="~/Projects/dotfiles/bin:/opt/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$PA
 # for firefox
 MOZILLA_HOME=~/.mozilla
 mkdir -p $MOZILLA_HOME/plugins
-ln -s -f $JDK7_HOME/jre/lib/$arch/libnpjp2.so $MOZILLA_HOME/plugins
+ln -s -f $JDK8_HOME/jre/lib/$arch/libnpjp2.so $MOZILLA_HOME/plugins
 
 # seadas config
 #source ~/Projects/BC/Calvados/cdt_ws/config/seadas.env
