@@ -1,0 +1,5 @@
+#/bin/sh
+idea_bin=idea.sh
+file1=`readlink -f $1`
+file2=`readlink -f $2`
+$idea_bin diff $file1 $file2
