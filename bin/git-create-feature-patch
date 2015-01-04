@@ -1,0 +1,15 @@
+#!/bin/bash
+
+feature=$1
+
+now=$(date '+%Y-%m-%d_%H-%M-%S')
+where=$(hostname)
+diffDir="$HOME/Dropbox/Stashes/Features"
+repoAbsolute=$(git rev-parse --show-toplevel)
+repo=$(basename ${repoAbsolute})
+diffFile="${diffDir}/${repo}-${feature}-${now}@${where}.diff"
+
+echo "Stashing to ${diffFile}"
+mkdir -p $diffDir
+git-total-diff > "$diffFile"
+
