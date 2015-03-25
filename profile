@@ -7,16 +7,18 @@ nodename=`uname -n`
 
 # my JAVA stuff
 if [ $nodename = "marcoz-desktop" ]; then
+  # desktop @ BC
 
   export JDK6_HOME="/opt/Java/jdk1.6.0_45"
   export JDK7_HOME="/opt/Java/jdk1.7.0_76"
-  export JDK8_HOME="/opt/Java/jdk1.8.0_31"
+  export JDK8_HOME="/opt/Java/jdk1.8.0_40"
 
   export JDK_HOME=$JDK8_HOME
-  export MAVEN_HOME="/opt/Maven/apache-maven-3.2.5"
+  export MAVEN_HOME="/opt/Maven/apache-maven-3.3.1"
   arch="amd64"
 
 elif [ $nodename = "castle" ]; then
+  # notebook
 
   export JDK6_HOME="/opt/Java/jdk1.6.0_45"
   export JDK7_HOME="/opt/Java/jdk1.7.0_72"
