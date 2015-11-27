@@ -14,7 +14,7 @@ if [ $nodename = "marcoz-desktop" ]; then
   export JDK8_HOME="/opt/Java/jdk1.8.0_66"
 
   export JDK_HOME=$JDK8_HOME
-  export MAVEN_HOME="/opt/Maven/apache-maven-3.3.3"
+  export MAVEN_HOME="/opt/Maven/apache-maven-3.3.9"
   arch="amd64"
 
 elif [ $nodename = "castle" ]; then
@@ -33,7 +33,8 @@ fi
 export JAVA_HOME=$JDK_HOME
 
 export M2_HOME=$MAVEN_HOME
-export MAVEN_OPTS="-Xms128m -Xmx1024m -XX:MaxPermSize=512m"
+#export MAVEN_OPTS="-Xms128m -Xmx1024m -XX:MaxPermSize=512m"
+export MAVEN_OPTS="-Xms128m -Xmx1024m"
 
 export PATH="~/Projects/dotfiles/bin:/opt/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH"
 
