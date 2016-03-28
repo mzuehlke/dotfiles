@@ -22,7 +22,7 @@ elif [ $nodename = "castle" ]; then
 
   export JDK6_HOME="/opt/Java/jdk1.6.0_45"
   export JDK7_HOME="/opt/Java/jdk1.7.0_80"
-  export JDK8_HOME="/opt/Java/jdk1.8.0_74"
+  export JDK8_HOME="/opt/Java/jdk1.8.0_77"
 
   export JDK_HOME=$JDK8_HOME
   export MAVEN_HOME="/opt/Maven/apache-maven-3.3.9"
