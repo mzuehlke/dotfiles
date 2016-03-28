@@ -27,6 +27,8 @@ elif [ $nodename = "castle" ]; then
   export JDK_HOME=$JDK8_HOME
   export MAVEN_HOME="/opt/Maven/apache-maven-3.3.9"
   arch="i386"
+  
+  export PATH="/opt/NodeJS/node-v4.4.1-linux-x86/bin:$PATH"
 
 fi
 
